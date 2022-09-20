@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='Notice')"/>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+    <div th:each="unCoordinateur : ${coordinateurList}" th:if="${#authentication.name} == ${unCoordinateur.email}">
+        <h1 th:text="'Bonjour, ' + ${unCoordinateur.prenom}" class="h1 m-4"></h1>
+    </div>
+<!--    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">-->
+<!--        <h1 class="h2">Dashboard</h1>-->
+
+
+<!--    </div>-->
+
+
+    <div class="shadowForm p-1 lead">
+
+        <h2 class="text-center p-2">Notice</h2>
+        <hr>
+        <section class="p-4  m-2">
+
+            <p><u>Le fichier Excel (IMP) doit être modifié au préalable.</u></p>
+            <ul>
+                <li class="my-2">
+                    <p>Pour chaque compétence ajouter : <span class="border-box"> -- </span></p>
+                    <ul>
+                        <li>les deux tirets doive entre suivi et précédé d'un espace</li>
+                        <li>ils doivent se situer entre le nom de la compétence et sa description</li>
+                    </ul>
+                </li>
+                <li class="my-2">Les cellules concernant l'activité (CCP) sont les seuls à avoir CCP.</li>
+                <li class="my-2">L'en-tête doit respecter le précèdent.</li>
+                <li class="my-2">La date de session est au format : (les espaces comprirent.)
+                    <span class="border-box">Dates : JJ/MM/AAAA AU JJ/MM/AAAA</span></li>
+            </ul>
+            <p>Les compétences techniques doivent être ajoutées via les formulaires.</p>
+
+<!--            <a href="https://www.baeldung.com/spring-request-response-body" target="_blank">ResponseBody</a>-->
+<!--            <a href="https://www.banque.di.afpa.fr/EspaceEmployeursCandidatsActeurs/EGPResultat.aspx?ct=01281m03&type=t" target="_blank">Reac</a>-->
+        </section>
+    </div>
+</main>
+
+<!-- /.container -->
+<div th:replace="coordinateurs/fragments/footer:: footer"/>
+</body>
+</html>
+

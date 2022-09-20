@@ -1,0 +1,32 @@
+@startuml
+
+actor Coordinateur
+control "CentreController" as DC
+participant "centreRepository" as CR
+entity "Centre" as C
+database "BDD" as BDD
+boundary "View" as V
+
+Coordinateur -> DC: GET/dashboard/centre
+activate DC #FFBBBB
+
+DC -> CR: findAll()
+activate DC #DarkSalmon
+activate CR #FFBBBB
+
+CR -> BDD: select * from centre
+activate BDD #FFBBBB
+BDD --> CR: return
+deactivate BDD
+
+CR --> DC: return
+deactivate DC
+deactivate CR
+
+DC -> V: dispose dans le template
+V -> V: affiche l'HTML
+V --> DC: return
+
+DC --> Coordinateur: return
+deactivate DC
+@enduml

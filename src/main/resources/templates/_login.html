@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <div th:replace="fragments/header :: header-css (title='index')"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header-nav"/>
+
+<main class="">
+    <div class="space"></div>
+    <section class="container">
+        <div class="row my-4">
+            <h1 class="text-center m-2">Connexion</h1>
+
+            <form novalidate action="" class="col-3 mx-auto my-4">
+                <div class="col-auto my-4">
+
+                    <label class="visually-hidden" for="autoSizingSelect">Type intervenant</label>
+                    <select class="form-select" id="autoSizingSelect">
+                        <option selected>Choix... faire boucle</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                    </select>
+                </div>
+                <div class="my-4">
+                    <label for="">E-mail</label>
+                    <div class="col-auto">
+                        <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-text">@</div>
+                            <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-4">
+                    <label for="">Mot de passe</label>
+                    <input class="form-control" required minlength="2" maxlength="100" type="password" name="mdp">
+                </div>
+
+                <div class="row my-4">
+
+                    <div class="col-auto">
+                        <button class="btn btn-success">Envoyer</button>
+                    </div>
+
+                    <div class="col-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                            <label class="form-check-label" for="autoSizingCheck">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="nav-link active" aria-current="page" th:href="@{/ficheForm}" href="#">Home</a>
+            </form>
+        </div>
+    </section>
+    <hr>
+
+
+
+
+</main>
+<!-- /.container -->
+<div th:replace="fragments/footer:: footer"/>
+</body>
+</html>

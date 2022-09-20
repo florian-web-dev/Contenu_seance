@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>35f782f8-6f6f-4213-ab45-7a3bfb516d6b</OriginalElement>
+  <nodes>
+    <node x="676.3859833163447" y="671.2033985581874">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.COMPETENCE</node>
+    <node x="1467.0" y="932.5">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SEANCE</node>
+    <node x="676.3859833163447" y="511.4884932835719">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.ACTIVITE</node>
+    <node x="697.3859833163447" y="285.7718846549949">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.REAC</node>
+    <node x="1102.0" y="285.7718846549949">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.CENTRE</node>
+    <node x="1489.5" y="552.5">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.INTERVENANT</node>
+    <node x="1761.0173939578885" y="509.2789136405248">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.INTERVENANT_SESSIONS</node>
+    <node x="1075.5" y="870.2676228257553">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SEANCE_SAVOIR_FAIRES</node>
+    <node x="1195.3518462007935" y="540.9063878569451">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.CENTRE_COORDINATEURS</node>
+    <node x="807.75" y="819.3094747682801">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SAVOIR_FAIRE</node>
+    <node x="1871.0" y="225.5">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SESSION</node>
+    <node x="1402.5016950207212" y="186.7726596473188">35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.FORMATION</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SEANCE_SAVOIR_FAIRES" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SEANCE" relationship="REFERENCES">
+      <point x="104.5" y="-0.0" />
+      <point x="1375.75" y="909.2676228257553" />
+      <point x="1375.75" y="975.4603147768007" />
+      <point x="-109.23683292908436" y="-84.53968522319929" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SESSION" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.INTERVENANT" relationship="REFERENCES">
+      <point x="-89.38619979402665" y="58.89495365602471" />
+      <point x="1580.0" y="378.8949536560247" />
+      <point x="0.0" y="-127.5" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.INTERVENANT_SESSIONS" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SESSION" relationship="REFERENCES">
+      <point x="0.0" y="-39.0" />
+      <point x="1869.0173939578885" y="577.9941257247483" />
+      <point x="2030.6133658834297" y="577.9941257247483" />
+      <point x="2030.6133658834297" y="502.24321025328044" />
+      <point x="2098.842538907538" y="502.24321025328044" />
+      <point x="2098.842538907538" y="271.9526679548727" />
+      <point x="1991.5645407384804" y="271.9526679548727" />
+      <point x="31.564540738480446" y="93.97650289899298" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.CENTRE_COORDINATEURS" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.INTERVENANT" relationship="REFERENCES">
+      <point x="111.50289899298127" y="28.660899295938634" />
+      <point x="1450.3520750686603" y="608.5672871528838" />
+      <point x="1450.3520750686603" y="680.0" />
+      <point x="-90.5" y="-0.0" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SEANCE" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SESSION" relationship="REFERENCES">
+      <point x="101.97795895898366" y="116.36686903729401" />
+      <point x="1775.5707603466678" y="1176.366869037294" />
+      <point x="1775.5707603466678" y="730.7506435476267" />
+      <point x="2150.54720968714" y="730.7506435476267" />
+      <point x="2150.54720968714" y="320.0" />
+      <point x="89.0" y="-0.0" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SEANCE_SAVOIR_FAIRES" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SAVOIR_FAIRE" relationship="REFERENCES">
+      <point x="-107.11599069533395" y="25.454211633682007" />
+      <point x="989.4771895025938" y="934.7218344594373" />
+      <point x="989.4771895025938" y="862.7505192320953" />
+      <point x="967.75" y="862.7505192320953" />
+      <point x="80.0" y="-0.0" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.COMPETENCE" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.ACTIVITE" relationship="REFERENCES">
+      <point x="-4.585243683450699" y="48.699365411694316" />
+      <point x="913.3435590062371" y="781.4027639698817" />
+      <point x="913.3435590062371" y="559.6551063422112" />
+      <point x="100.61967745593643" y="-13.333386941360686" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SESSION" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.FORMATION" relationship="REFERENCES">
+      <point x="0.0" y="-94.5" />
+      <point x="1960.0" y="402.7088800732377" />
+      <point x="1782.1086359475132" y="402.7088800732377" />
+      <point x="1782.1086359475132" y="226.2726596473188" />
+      <point x="1504.5016950207212" y="226.2726596473188" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SEANCE" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.INTERVENANT" relationship="REFERENCES">
+      <point x="0.0" y="-127.5" />
+      <point x="0.0" y="127.5" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.CENTRE_COORDINATEURS" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.CENTRE" relationship="REFERENCES">
+      <point x="-82.68385718645118" y="2.8598617616083857" />
+      <point x="1152.4429916581723" y="582.7662496185535" />
+      <point x="1152.4429916581723" y="458.3055104554825" />
+      <point x="1152.6966737870002" y="458.3055104554825" />
+      <point x="-43.303326212999764" y="77.43180774659191" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SESSION" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.CENTRE" relationship="REFERENCES">
+      <point x="-89.38619979402665" y="38.27188465499489" />
+      <point x="1814.4681110772049" y="358.2718846549949" />
+      <point x="1814.4681110772049" y="332.0955141898077" />
+      <point x="94.29966432712854" y="-26.176370465187176" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.SAVOIR_FAIRE" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.COMPETENCE" relationship="REFERENCES">
+      <point x="-80.0" y="-0.0" />
+      <point x="711.1390319258497" y="869.8094747682801" />
+      <point x="711.1390319258497" y="732.7033985581874" />
+      <point x="69.5" y="-0.0" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.INTERVENANT_SESSIONS" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.INTERVENANT" relationship="REFERENCES">
+      <point x="-108.0" y="-0.0" />
+      <point x="1725.7107110161737" y="548.2789136405248" />
+      <point x="1725.7107110161737" y="680.0" />
+      <point x="90.5" y="-0.0" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.REAC" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.FORMATION" relationship="REFERENCES">
+      <point x="71.62944944290712" y="72.71700210492082" />
+      <point x="1008.0" y="441.9888867599157" />
+      <point x="1008.0" y="226.2726596473188" />
+      <point x="-102.0" y="-0.0" />
+    </edge>
+    <edge source="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.ACTIVITE" target="35f782f8-6f6f-4213-ab45-7a3bfb516d6b.TABLE:LOCALDB.PUBLIC.REAC" relationship="REFERENCES">
+      <point x="-83.55353580330859" y="51.468299205410744" />
+      <point x="657.7197637340493" y="624.4567924889826" />
+      <point x="657.7197637340493" y="328.8887201791169" />
+      <point x="775.3859833163447" y="328.8887201791169" />
+      <point x="0.0" y="83.5" />
+    </edge>
+  </edges>
+  <settings layout="Orthogonal Groups" zoom="0.5864044943820225" showDependencies="false" x="1419.1802695024544" y="707.8084364701878" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

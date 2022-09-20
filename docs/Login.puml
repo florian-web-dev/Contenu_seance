@@ -1,0 +1,27 @@
+@startuml
+!theme hacker
+
+start
+floating note left: L'utilisateur est inscrit
+
+repeat :L'utilisateur rentre ses identifiants;
+
+backward: Identifiants invalides;
+note right: Identifiants = adresse email et mot de passe
+repeat while (Les identifiants sont correctes?) is (Non) not (Oui)
+
+:L'utilisateur est connécté;
+
+
+if (L'utilisateur est ?) then (Formateur)
+  :Prend le role Formateur;
+else (Coordonateur)
+  :Prend le role Coordonateur;
+endif
+
+
+:Affichage et service correspondant;
+
+stop
+floating note right: L'utilisateur est connecté dans l'application
+@enduml

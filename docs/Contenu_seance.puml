@@ -1,0 +1,71 @@
+@startuml
+!theme hacker
+
+abstract class Intervenant {
+-id: Long
+-nom: String
+-prenom: String
+-adresse: String
+-codePostal: String
+-tel: String
+}
+class Coordinateur
+class Formateur
+class Seance {
+-id: Long
+-dateDuJour: Date
+-durer: int
+-supportUse: String
+-deroulement: String
+-objetcifPeda: String
+}
+class Centre {
+-id: String
+-nomCentre: String
+-adresseCentre: String
+-codesPostal: String
+-ville: String
+}
+class Session {
+-id: Long
+-dateDebut: Date
+-dateFin: Date
+}
+class Formation {
+-id: Long
+-typeFormation: String
+}
+class Reac {
+-id: Long
+-link: String
+-dateDebut: Date
+-durer: Long
+}
+class Activite {
+-id: Long
+-activitesTypes: String
+}
+class Competence {
+-id: Long
+-nom: String
+}
+class Historique{
+-id: Long
+}
+
+
+Intervenant <|- Coordinateur :"\t\t\t"
+Intervenant <|-- Formateur :"\t\t\t"
+Formateur "1" - "*" Seance :"\t\t\t\t"
+Session "*" - "*" Formateur :"\t"
+Centre "*" -- "*" Coordinateur :"\t\t\t"
+Centre "1" - "*" Session :"\t\t\t"
+Session "*" -- "1" Coordinateur
+Session "1" - "*" Seance :"\t"
+Session "*" - "1" Formation :"\t\t\t"
+Formation "1" - "*" Reac :"\t\t\t"
+Reac "1" -- "*" Activite :"\t\t\t"
+Activite "1" -- "*" Competence :"\t\t\t"
+Seance "*" - "1" Competence :"\t\t\t\t\t\t\t\t\t\t\t"
+
+@enduml

@@ -1,0 +1,234 @@
+@startuml
+participant Actor
+Actor -> ReferentielController : postAddReac
+activate ReferentielController
+ReferentielController -> ReacDTO : getId
+activate ReacDTO
+ReacDTO --> ReferentielController
+deactivate ReacDTO
+ReferentielController -> ReferentielController : reacViewModel
+activate ReferentielController
+ReferentielController -> ReferentielService : getReacs
+activate ReferentielService
+ReferentielService --> ReferentielController
+deactivate ReferentielService
+ReferentielController -> FicheSuivieService : getFormations
+activate FicheSuivieService
+FicheSuivieService --> ReferentielController
+deactivate FicheSuivieService
+ReferentielController --> ReferentielController
+deactivate ReferentielController
+ReferentielController -> ReacDTO : getId
+activate ReacDTO
+ReacDTO --> ReferentielController
+deactivate ReacDTO
+ReferentielController -> ReferentielController : reacViewModel
+activate ReferentielController
+ReferentielController -> ReferentielService : getReacs
+activate ReferentielService
+ReferentielService --> ReferentielController
+deactivate ReferentielService
+ReferentielController -> FicheSuivieService : getFormations
+activate FicheSuivieService
+FicheSuivieService --> ReferentielController
+deactivate FicheSuivieService
+ReferentielController --> ReferentielController
+deactivate ReferentielController
+ReferentielController -> ReacDTO : getNom
+activate ReacDTO
+ReacDTO --> ReferentielController
+deactivate ReacDTO
+ReferentielController -> ReferentielService : saveReacDto
+activate ReferentielService
+ReferentielService -> ReacDTO : getId
+activate ReacDTO
+ReacDTO --> ReferentielService
+deactivate ReacDTO
+ReferentielService -> Reac : new
+activate Reac
+Reac --> ReferentielService
+deactivate Reac
+ReferentielService -> ReacDTO : getId
+activate ReacDTO
+ReacDTO --> ReferentielService
+deactivate ReacDTO
+ReferentielService -> Reac : new
+activate Reac
+Reac --> ReferentielService
+deactivate Reac
+ReferentielService -> ReacDTO : getNom
+activate ReacDTO
+ReacDTO --> ReferentielService
+deactivate ReacDTO
+ReferentielService -> Reac : setNom
+activate Reac
+Reac --> ReferentielService
+deactivate Reac
+ReferentielService -> ReacDTO : getLien
+activate ReacDTO
+ReacDTO --> ReferentielService
+deactivate ReacDTO
+ReferentielService -> Reac : setLien
+activate Reac
+Reac --> ReferentielService
+deactivate Reac
+ReferentielService -> ReacDTO : getDateDebut
+activate ReacDTO
+ReacDTO --> ReferentielService
+deactivate ReacDTO
+ReferentielService -> Reac : setDateDebut
+activate Reac
+Reac --> ReferentielService
+deactivate Reac
+ReferentielService -> ReacDTO : getDurer
+activate ReacDTO
+ReacDTO --> ReferentielService
+deactivate ReacDTO
+ReferentielService -> Reac : setDurer
+activate Reac
+Reac --> ReferentielService
+deactivate Reac
+ReferentielService -> ReacDTO : getFormation
+activate ReacDTO
+ReacDTO --> ReferentielService
+deactivate ReacDTO
+ReferentielService -> Reac : setFormation
+activate Reac
+Reac --> ReferentielService
+deactivate Reac
+ReferentielService -> ReacDTO : getActivites
+activate ReacDTO
+ReacDTO --> ReferentielService
+deactivate ReacDTO
+ReferentielService -> Reac : setActivites
+activate Reac
+Reac --> ReferentielService
+deactivate Reac
+ReferentielService --> ReferentielController
+deactivate ReferentielService
+ReferentielController -> ExcelReadService : generateDtoByExel
+activate ExcelReadService
+ExcelReadService -> Formation : new
+activate Formation
+Formation --> ExcelReadService
+deactivate Formation
+ExcelReadService -> Session : new
+activate Session
+Session --> ExcelReadService
+deactivate Session
+ExcelReadService -> Centre : new
+activate Centre
+Centre --> ExcelReadService
+deactivate Centre
+ExcelReadService -> Activite : new
+activate Activite
+Activite --> ExcelReadService
+deactivate Activite
+ExcelReadService -> Competence : new
+activate Competence
+Competence --> ExcelReadService
+deactivate Competence
+ExcelReadService -> Centre : setNom
+activate Centre
+Centre --> ExcelReadService
+deactivate Centre
+ExcelReadService -> Centre : setCodesPostal
+activate Centre
+Centre --> ExcelReadService
+deactivate Centre
+ExcelReadService -> Centre : setVille
+activate Centre
+Centre --> ExcelReadService
+deactivate Centre
+ExcelReadService -> Centre : setAdresse
+activate Centre
+Centre --> ExcelReadService
+deactivate Centre
+ExcelReadService -> FicheSuivieService : saveEntityCentreExcel
+activate FicheSuivieService
+FicheSuivieService --> ExcelReadService
+deactivate FicheSuivieService
+ExcelReadService -> Formation : setTypeFormation
+activate Formation
+Formation --> ExcelReadService
+deactivate Formation
+ExcelReadService -> FicheSuivieService : saveEntityFormationExel
+activate FicheSuivieService
+FicheSuivieService --> ExcelReadService
+deactivate FicheSuivieService
+ExcelReadService -> Reac : setFormation
+activate Reac
+Reac --> ExcelReadService
+deactivate Reac
+ExcelReadService -> Session : setDateDebut
+activate Session
+Session --> ExcelReadService
+deactivate Session
+ExcelReadService -> Session : setDateFin
+activate Session
+Session --> ExcelReadService
+deactivate Session
+ExcelReadService -> Session : setFormation
+activate Session
+Session --> ExcelReadService
+deactivate Session
+ExcelReadService -> FicheSuivieService : saveSessionEntityExcel
+activate FicheSuivieService
+FicheSuivieService --> ExcelReadService
+deactivate FicheSuivieService
+ExcelReadService -> ReferentielService : saveReacEntityExcel
+activate ReferentielService
+ReferentielService --> ExcelReadService
+deactivate ReferentielService
+ExcelReadService -> Activite : setActivitesTypes
+activate Activite
+Activite --> ExcelReadService
+deactivate Activite
+ExcelReadService -> Activite : setNumOdre
+activate Activite
+Activite --> ExcelReadService
+deactivate Activite
+ExcelReadService -> Activite : setReac
+activate Activite
+Activite --> ExcelReadService
+deactivate Activite
+ExcelReadService -> ReferentielService : creatActiviteEntityExcel
+activate ReferentielService
+ReferentielService --> ExcelReadService
+deactivate ReferentielService
+ExcelReadService -> Competence : setNom
+activate Competence
+Competence --> ExcelReadService
+deactivate Competence
+ExcelReadService -> Competence : setNumOdre
+activate Competence
+Competence --> ExcelReadService
+deactivate Competence
+ExcelReadService -> Competence : setActivite
+activate Competence
+Competence --> ExcelReadService
+deactivate Competence
+ExcelReadService -> ReferentielService : createCompetenceEntity
+activate ReferentielService
+ReferentielService --> ExcelReadService
+deactivate ReferentielService
+ExcelReadService -> SavoirFaire : new
+activate SavoirFaire
+SavoirFaire --> ExcelReadService
+deactivate SavoirFaire
+ExcelReadService -> SavoirFaire : setNom
+activate SavoirFaire
+SavoirFaire --> ExcelReadService
+deactivate SavoirFaire
+ExcelReadService -> SavoirFaire : setCompetence
+activate SavoirFaire
+SavoirFaire --> ExcelReadService
+deactivate SavoirFaire
+ExcelReadService -> ReferentielService : saveSavoirFaireEntity
+activate ReferentielService
+ReferentielService --> ExcelReadService
+deactivate ReferentielService
+ExcelReadService --> ReferentielController
+deactivate ExcelReadService
+return
+@enduml

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='Savoir faire')"/>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Savoir faire | Contenu pédagogique</h1>
+
+    </div>
+
+    <!--<div th:with="az=bob" >-->
+    <!--    <p th:utext="${az}"></p>-->
+    <!--</div>-->
+    <div th:if="${message}" class="alert alert-success" role="alert">
+        <p class="text-center" th:text="${message}"></p>
+    </div>
+    <div class="row g-3 p-3 align-items-center">
+
+        <!--        <div class="col-lg-6 col-sm-10 table-responsive">-->
+        <!--            <table class="table">-->
+        <!--                <thead>-->
+        <!--                <tr>-->
+
+        <!--                    <th scope="col">Savoir faire | Contenu pédagogique</th>-->
+        <!--                    <th scope="col" class="text-center">Action</th>-->
+        <!--                </tr>-->
+        <!--                </thead>-->
+        <!--                <tbody>-->
+        <!--                <tr th:each="unSkill: ${savoirFaires}">-->
+        <!--                    <td th:text="${unSkill.nom}"></td>-->
+        <!--                    <td class="text-center">-->
+        <!--                        <a type="button" class="btn" role="button" aria-disabled="true"-->
+        <!--                           th:classappend="${id==null}? 'btn-secondary' : 'disabled'"-->
+        <!--                           th:href="@{'Modifier-Savoir_Faire/'+${unSkill.id}}">Modifier</a>-->
+        <!--                        <a type="button" class="btn btn-danger" th:href="@{'Savoir_Faire-sup/'+ ${unSkill.id}}">Supprimer</a>-->
+        <!--                    </td>-->
+        <!--                </tr>-->
+        <!--                </tbody>-->
+        <!--            </table>-->
+        <!--        </div>-->
+
+        <form class="needs-validation col-lg-6 col-sm-10 mx-auto py-3" th:object="${savoirFaireDTO}"
+              th:action="@{/Coordinateur/traitemant-Savoir_Faire}" method="post" novalidate>
+            <input type="hidden" name="id" th:value="${id}">
+
+            <div class="my-3">
+                <b><label class="form-label" for="">Seance</label></b>
+                <select class="form-select" aria-label="Default select example" name="seances">
+                    <option selected disabled>Open this select menu</option>
+                    <option th:each="uneSeance :${seanceList}"
+                            th:with="date=${#temporals.format(uneSeance.dateDuJour,'dd/MM/yyyy')}"
+                            th:text=" ${date} + ' | ' +
+                            ${uneSeance?.session?.formation?.typeFormation}"
+
+                            th:value="${uneSeance.id}"
+                    >
+                    </option>
+                    <!--                    ${uneSeance.session.formation}-->
+                </select>
+            </div>
+
+            <div class="my-3">
+                <b><label class="form-label" for="">Compétence</label></b>
+                <select class="form-select" aria-label="Default select example" name="competence">
+                    <option selected disabled>Open this select menu</option>
+                    <option th:each="UneCompetence :${competences}"
+                            th:text="${UneCompetence.nom}"
+                            th:value="${UneCompetence.id}"
+                    >
+                    </option>
+
+                </select>
+            </div>
+            <div class="my-3">
+                <b><label th:text="${id==null} ? 'Ajoutez un savoir faire' : 'Modifiez le savoir faire n°'+ ${id}"
+                          class="form-label" for="nom">Ajoutez une formation</label></b>
+                <p class="alert alert-info" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></p>
+                <input type="text" class="form-control" id="nom" placeholder="Nom de la formation"
+                       aria-label="Nom de la formation" name="nom" th:field="*{nom}">
+            </div>
+
+
+            <div class="col-12 text-center my-4">
+                <button class="btn btn-primary" type="submit"
+                        th:text="${id==null} ? 'Ajoutez un Savoir faire' : 'Modifiez un savoir faire'">Submit form
+                </button>
+            </div>
+        </form>
+
+    </div>
+    <hr>
+
+
+    <section class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+<!--                <th scope="col">id</th>-->
+                <th scope="col">Savoir faire | Contenu pédagogique</th>
+                <th scope="col">Competance</th>
+                <th scope="col">Liste Seance</th>
+
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="unSkill : ${savoirFaires}">
+<!--                <th th:text="${unSkill.id}"></th>-->
+                <td style="width: 40%;">
+
+                    <div class="text-center">
+                        <p th:text="${unSkill.nom}"></p>
+
+                        <span>
+                            <a type="button" class="btn" role="button" aria-disabled="true"
+                               th:classappend="${id==null}? 'btn-secondary' : 'disabled'"
+                               th:href="@{'Modifier-Savoir_Faire/'+${unSkill.id}}">Modifier</a>
+                        <a type="button" class="btn btn-danger" th:href="@{'Savoir_Faire-sup/'+ ${unSkill.id}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                 fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"></path>
+                        </svg>
+                        </a>
+                        </span>
+
+                    </div>
+                </td>
+
+                <td class="w-25" th:text="${unSkill?.competence?.nom}"></td>
+
+
+                <td>
+                    <ul th:each="uneCompetenceForSkill : ${unSkill?.seances}" class="list-unstyled border-start p-2">
+<!--                        <li>Id seance :-->
+<!--                            <b><span th:text="${uneCompetenceForSkill.id}"></span></b>-->
+<!--                        </li>-->
+                        <li>Nom formateur :
+                            <b><span th:text=" ${uneCompetenceForSkill?.formateur?.nom}"></span></b>
+                        </li>
+                        <li>Date seance :
+                            <b><span th:text="${#temporals.format(uneCompetenceForSkill.dateDuJour,'dd/MM/YYYY')}"></span></b>
+                        </li>
+                        <li>Durée :
+                            <b><span th:text="${uneCompetenceForSkill.durer}"></span></b>
+                        </li>
+                        <hr>
+
+                    </ul>
+
+
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+<!-- /.container -->
+<div th:replace="coordinateurs/fragments/footer:: footer"/>
+</body>
+</html>

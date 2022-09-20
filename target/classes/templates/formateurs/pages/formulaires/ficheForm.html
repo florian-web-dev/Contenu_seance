@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <div th:replace="formateurs/fragments/header :: header-css (title='Fiche suivie')"/>
+</head>
+<body>
+<div th:replace="formateurs/fragments/header :: header-nav"/>
+<main class="">
+    <div class="space"></div>
+    <div class="">
+
+        <h1 class="text-center m-2"
+            th:text="${id==null} ? 'Ajoutez une fiche de suivi de séance.' : 'Modifiez une fiche de suivi de séance.'">
+            Ajoutez contenu séance</h1>
+
+<!--        <form method="post" th:action="@{/Formateur/pre-traitement}" th:name="uneSession">-->
+<!--            <div class="m-auto">-->
+<!--                <label class="form-label" for="">Session | Date</label>-->
+<!--                <select class="form-select" name="session">-->
+<!--                    <option selected disabled>Choix...</option>-->
+<!--                    <option th:each="uneSession : ${sessionsList}"-->
+<!--                            th:text="${uneSession.formation.typeFormation} + ' | ' + ${#temporals.format(uneSession.dateDebut,'dd-MM-YYYY')}"-->
+<!--                            th:value="${uneSession.id}"></option>-->
+
+<!--                </select>-->
+<!--                <button type="submit">envoyer</button>-->
+<!--            </div>-->
+<!--        </form>-->
+
+<!--        <div th:each="seanceDto : ${seanceDTO}">-->
+<!--            <p th:text="${seanceDto.savoirFaireList}"></p>-->
+<!--        </div>-->
+
+
+        <form class="m-4 shadowForm" method="post"
+              th:action="@{/Formateur/traitement-seance}"
+              th:object="${seanceDTO}">
+
+<!--            <div class="m-auto row p-4 g-3 justify-content-center">-->
+<!--                <div class="col-5 col-sm-8 col-lg-5">-->
+<!--                    <input type="hidden" name="id" th:value="${id}">-->
+<!--                    <label for="" class="form-label">Formation</label>-->
+<!--                    &lt;!&ndash;                    <input class="form-control" type="text" name="contenu">&ndash;&gt;-->
+<!--                </div>-->
+<!--                <div class="col-5 col-sm-8 col-lg-5">-->
+<!--                    <label class="" for="">Contenus pédagogique proposés /Activite</label>-->
+<!--                </div>-->
+
+<!--            </div>-->
+
+            <div class="m-auto row p-4 g-3 justify-content-center">
+                <p th:if="${id} != null" th:text="'ID : ' + ${id}"></p>
+                <div class="col-3 col-lg-3 col-sm-8">
+                    <label class="form-label" for="">Session | Date</label>
+                    <select class="form-select" name="session">
+                        <option selected disabled>Choose...</option>
+                        <option th:each="uneSession : ${sessionsList}"
+                                th:text="${uneSession.formation.typeFormation} + ' | ' + ${#temporals.format(uneSession.dateDebut,'dd-MM-YYYY')}"
+                                th:value="${uneSession.id}"></option>
+
+                    </select>
+                </div>
+
+                <div class="col-3 col-lg-3 col-sm-8">
+                    <label class="form-label" for="">Formateur</label>
+                    <select class="form-select" name="formateur">
+                        <option selected disabled>Choose...</option>
+                        <option th:each="unFormateur : ${formateursList}"
+                                th:text="${unFormateur.nom}"
+                                th:value="${unFormateur.id}"
+                        ></option>
+
+                    </select>
+                </div>
+<!--                <div class="col-3 col-lg-3 col-sm-8">-->
+<!--                    <label for="evaluation" class="form-label">Évaluations</label>-->
+<!--                    <select class="form-select" id="evaluation" name="evaluation">-->
+<!--                        <option selected disabled>Choose...</option>-->
+<!--                        <option th:each="uneEval : ${evaluationList}"-->
+<!--                                th:text="${uneEval.modalite}"-->
+<!--                                th:value="${uneEval.id}"></option>-->
+<!--                    </select>-->
+<!--                </div>-->
+
+            </div>
+
+            <div class="row px-5 m-auto g-4 justify-content-center">
+                <hr>
+                <div class="col-2 col-sm-8 col-lg-2">
+                    <label class="form-label" for="dateSeance">Date de la seance</label>
+                    <input type="date" th:field="*{dateDuJour}" class="form-control" id="dateSeance">
+                </div>
+                <div class="col-1 col-sm-8 col-lg-1">
+                    <label class="form-label" for="duree" title="Temps prévu">Durée</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('durer')}" th:errors="*{durer}"></p>
+                    <input type="number" th:field="*{durer}" class="form-control" id="duree">
+                </div>
+                <div class="col-3 col-sm-8 col-lg-3">
+                    <label class="form-label" for="supportUse">Support utilisé</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('supportUse')}"
+                       th:errors="*{supportUse}"></p>
+                    <input type="text" th:field="*{supportUse}" class="form-control" id="supportUse"
+                           placeholder="Objectif pédagogique">
+                </div>
+                <div class="col-4 col-sm-8 col-lg-3">
+                    <label class="form-label" for="objectifPeda">Objectif pédagogique</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('objectifPeda')}"
+                       th:errors="*{objectifPeda}"></p>
+                    <input type="text" th:field="*{objectifPeda}" class="form-control" id="objectifPeda"
+                           placeholder="Objectif pédagogique">
+                </div>
+                <div class="col-4 col-sm-8 col-lg-3">
+                    <label class="form-label" for="methodeEnvisagee">Méthode envisagée</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('methodeEnvisagee')}"
+                       th:errors="*{methodeEnvisagee}"></p>
+                    <input type="text" th:field="*{methodeEnvisagee}" class="form-control" id="methodeEnvisagee"
+                           placeholder="Objectif pédagogique">
+                </div>
+                <div class="col-4 col-sm-8 col-lg-3">
+                    <label class="form-label" for="evaluation">Évaluation</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('evaluation')}"
+                       th:errors="*{evaluation}"></p>
+                    <input type="text" th:field="*{evaluation}" class="form-control" id="evaluation"
+                           placeholder="Évaluation">
+                </div>
+                <div class="col-4 col-sm-8 col-lg-3">
+                    <label for="skill" class="form-label">Savoir faires</label>
+                    <select class="form-select" id="skill" name="savoirFaires">
+                        <option selected disabled>Choose...</option>
+                        <option th:each="skill : ${savoirFaireList}"
+                                th:text="${skill.nom}"
+                                th:value="${skill.id}"></option>
+                    </select>
+                </div>
+
+                <div class="space"></div>
+                <div class="form-floating col-10 mx-auto my-3">
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('deroulement')}"
+                       th:errors="*{deroulement}"></p>
+                    <textarea class="form-control" th:field="*{deroulement}" placeholder="Leave a comment here"
+                              id="commentaire"></textarea>
+                    <label for="commentaire">Comments</label>
+                </div>
+                <button class="btn btn-success p-3 my-5"
+                        th:text="${id==null} ? 'Ajoutez une fiche de suivi de séance.' : 'Envoyer une fiche de suivi de séance modifier.'"></button>
+            </div>
+
+        </form>
+    </div>
+
+</main>
+
+<div th:replace="formateurs/fragments/footer:: footer"/>
+</body>
+</html>

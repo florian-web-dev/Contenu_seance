@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='Sessions')"/>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Session</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-calendar" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                This week
+            </button>
+        </div>
+    </div>
+    <h2>Modifez une session</h2>
+    <form class="row g-3 needs-validation p-3 " method="post" novalidate
+          th:action="@{/Coordinateur/traitement-session}"
+          th:object="${sessionDTO}">
+        <input type="hidden" name="id" th:value="${id}">
+        <div class="col-md-4">
+            <label for="centres" class="form-label">Centres</label>
+            <span th:if="${#fields.hasErrors('centre')}" th:errors="*{centre.nom}"></span>
+            <select class="form-select" id="centres" name="centre" required>
+                <option selected>Choisisez un centre</option>
+                <option th:each="unCentre : ${centreList}"
+                        th:value="${unCentre.id}"
+                        th:text="${unCentre.nom}"
+                >
+                </option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid state.
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="formation" class="form-label">Formation</label>
+            <span th:if="${#fields.hasErrors('formation')}" th:errors="*{formation.typeFormation}"></span>
+            <select class="form-select" id="formation" name="formation" required>
+                <option selected>Choisisez un formation</option>
+                <option th:each="uneFormation : ${formationList}"
+                        th:value="${uneFormation.id}"
+                        th:text="${uneFormation.typeFormation}"
+                >
+                </option>
+            </select>
+
+        </div>
+        <div class="col-md-4">
+            <label for="formation" class="form-label">Coordinnateur</label>
+            <span th:if="${#fields.hasErrors('coordinateur')}" th:errors="*{coordinateur.nom}"></span>
+            <select class="form-select" id="coordinnateur" name="coordinateur" required>
+                <option selected>Choisisez un centre</option>
+                <option th:each="unCoordinateur : ${coordinateurList}"
+                        th:value="${unCoordinateur.id}"
+                        th:text="${unCoordinateur.nom}">
+
+                </option>
+            </select>
+
+        </div>
+        <div class="col-12 my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <label for="dateDebut" class="form-label">Date debut</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('dateDebut')}" th:errors="*{dateDebut}"></p>
+                    <input type="date" th:field="*{dateDebut}"  class="form-control" id="dateDebut" required>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="dateFin" class="form-label">Date fin</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('dateFin')}" th:errors="*{dateFin}"></p>
+                    <input type="date" th:field="*{dateFin}" class="form-control" id="dateFin" required>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 text-center my-4">
+            <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+    </form>
+
+
+</main>
+
+<!-- /.container -->
+<div th:replace="coordinateurs/fragments/footer:: footer"/>
+</body>
+</html>

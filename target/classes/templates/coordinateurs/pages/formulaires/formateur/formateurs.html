@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='Formateurs')"/>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Formateurs</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/Coordinateur/exportFormateur}">Export</a>
+            </div>
+
+        </div>
+    </div>
+    <h2 class="text-center" th:text="${id==null} ? 'Ajoutez un formateur' : 'Modifiez un formateur n°'+ ${id}"> </h2>
+
+    <section class="d-flex justify-content-center">
+
+        <form class="col-10 needs-validation" novalidate="" th:object="${intervenantDTO}" method="post"
+              th:action="@{/Coordinateur/traitement-formateur}">
+            <input type="hidden" name="id" th:value="${id}" value="">
+            <div th:if="${message}" class="alert alert-success" role="alert" >
+                <p class="text-center" th:text="${message}"></p>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="nom" class="form-label">NOM</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></p>
+                    <input type="text" id="nom" th:field="*{nom}" class="form-control" placeholder="NOM"
+                           aria-label="NOM">
+                </div>
+                <div class="col-md-6">
+                    <label for="prenom" class="form-label">Prenom</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></p>
+                    <input type="text" id="prenom" th:field="*{prenom}" class="form-control" placeholder="Prenom"
+                           aria-label="Prenom">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    <input type="email" th:field="*{email}" class="form-control" id="inputEmail">
+                </div>
+                <div class="col-md-6">
+                    <label for="tel" class="form-label">Telephone</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}"></p>
+                    <input type="text" th:field="*{tel}" class="form-control" id="tel">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('mp')}" th:errors="*{mp}"></p>
+                    <p th:if="${messageError}" th:text="${messageError}" class="alert alert-info"></p>
+
+                    <input type="password" th:field="*{mp}" class="form-control" id="inputPassword">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="matchingPassword" class="form-label">Password confirmation</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}"></p>
+                    <p th:if="${messageError}" th:text="${messageError}" class="alert alert-info"></p>
+                    <input type="password" class="form-control" id="matchingPassword" th:field="*{matchingPassword}">
+                </div>
+
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Addresse</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}"></p>
+                    <input type="text" th:field="*{adresse}" class="form-control" id="inputAddress"
+                           placeholder="1234 Main St">
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <label for="inputCity" class="form-label">Ville</label>
+                            <p class="alert alert-info" th:if="${#fields.hasErrors('ville')}" th:errors="*{ville}"></p>
+                            <input type="text" th:field="*{ville}" class="form-control" id="inputCity">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="codePostal" class="form-label">Code Postal</label>
+                            <p class="alert alert-info" th:if="${#fields.hasErrors('codePostal')}"
+                               th:errors="*{codePostal}"></p>
+                            <input type="text" th:field="*{codePostal}" class="form-control" id="codePostal">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="session" class="form-label">Session</label>
+                    <!--            <span th:if="${#fields.hasErrors('coordinateur')}" th:errors="*{coordinateur.nom}"></span>-->
+                    <select class="form-select" id="session" name="sessions" required>
+                        <option selected disabled>Choisisez une session</option>
+                        <option th:each="uneSession : ${sessionList}"
+                                th:value="${uneSession.id}"
+                                th:with="dateDebut=${#temporals.format(uneSession.dateDebut,'dd-MM-YYYY')}"
+
+                                th:text="${dateDebut} + ' | '+ ${#temporals.format(uneSession.dateFin,'dd-MM-YYYY')} + ' | ' + ${uneSession.formation.typeFormation}">
+
+                        </option>
+                    </select>
+
+                    <label for="seance" class="form-label">Seance</label>
+                    <!--            <span th:if="${#fields.hasErrors('coordinateur')}" th:errors="*{coordinateur.nom}"></span>-->
+                    <select class="form-select" id="seance" name="seances" required>
+                        <option selected disabled>Choisisez une seance</option>
+                        <option th:each="uneSeance : ${seanceList}"
+                                th:value="${uneSeance.id}"
+                                th:text="${#temporals.format(uneSeance.dateDuJour,'dd-MM-YYYY')}">
+                        </option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="col-12 text-center my-4">
+                <button type="submit" class="w-50 btn btn-primary btn-lg" th:text="${id==null} ? 'Ajoutez un formateur' : 'Modifiez un formateur' ">Envoyez</button>
+            </div>
+
+        </form>
+    </section>
+    <hr>
+    <h3 class="text-center">Formateur</h3>
+    <section class="table-responsive">
+
+        <table class="table text-center">
+            <thead>
+            <tr>
+<!--                <th>id</th>-->
+<!--                <th>Nom</th>-->
+                <th>Formateur</th>
+                <th>Email</th>
+                <th>Adresse complet</th>
+<!--                <th>Ville</th>-->
+<!--                <th>Code postal</th>-->
+                <th>Telephone</th>
+                <th>Nombre de session</th>
+                <th>Total des heures des seances</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="unFormateur : ${formateurList}" class="">
+<!--                <td th:text="${unFormateur.id}"></td>-->
+
+                <td th:text="${unFormateur.concatNomPrenom()}" th:title="${unFormateur.nom} + ' ' + ${unFormateur.prenom} "></td>
+                <td th:text="${unFormateur.email}"></td>
+                <td th:text="${unFormateur.adresse} + ', ' + ${unFormateur.ville} + ', ' + ${unFormateur.codePostal} "></td>
+                <td th:text="${unFormateur.tel}"></td>
+                <td  th:each="formateurSession,iter : ${unFormateur.sessions}"
+                     th:if="${iter.last}"
+                     th:text="${iter.size}">
+
+                </td>
+                <td th:text="${unFormateur.calSumSeance()}" >
+<!--                    <div th:each="formateurSeance : ${unFormateur.seances}">-->
+<!--                        <p th:text="${formateurSeance.id}"></p>-->
+<!--                    </div>-->
+                </td>
+
+                <td class="text-center">
+                    <a type="button" class="btn" role="button" aria-disabled="true" th:classappend="${id==null}? 'btn-secondary' : 'disabled'"
+                       th:href="@{'ModifierFormateur/'+${unFormateur.id}}">Modifier</a>
+
+                    <a type="button" class="btn btn-danger"
+                       th:href="@{'Formateur-sup/'+${unFormateur.id}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"></path>
+                        </svg>
+                    </a>
+
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<!-- /.container -->
+<div th:replace="coordinateurs/fragments/footer:: footer"/>
+</body>
+</html>
+

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <div th:replace="formateurs/fragments/header :: header-css (title='Fiche suivie')"/>
+</head>
+<body>
+
+<div th:replace="formateurs/fragments/header :: header-nav"/>
+<main>
+
+    <div class="space"></div>
+    <section class="container">
+        <h2 class="text-center m-2">Évaluations</h2>
+        <div class="w-50 m-auto">
+            <form th:object="${evaluationDTO}"
+                  th:action="@{/Formateur/traitemant-evaluation}" method="post" novalidate>
+                <input type="hidden" name="id" th:value="${id}">
+
+                <b><label th:text="${id==null} ? 'Ajoutez une évaluation' : 'Modifiez une évaluation n°'+ ${id}" class="form-label" for="modalite">Ajoutez une formation</label></b>
+                <!--                <p class="alert alert-info" th:if="${#fields.hasErrors('modalite')}" th:errors="*{modalite}"></p>-->
+                <input type="text" class="form-control" id="modalite" placeholder="Nom de la formation"
+                       aria-label="Nom de la formation" name="modalite" th:field="*{modalite}">
+            </form>
+        </div>
+        <div class="table-responsive">
+
+            <div th:if="${message}" class="alert alert-success" role="alert">
+                <p class="text-center" th:text="${message}"></p>
+            </div>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>nom</th>
+                    <th>Liste Seance</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="UneEval: ${evaluations}">
+                    <th scope="row" th:text="${UneEval.id}"></th>
+                    <td>
+                        <div>
+                            <p th:text="${UneEval.modalite}"></p>
+                            <span>
+                                <a type="button" class="btn btn-secondary"
+                                   th:href="@{'Modifier-Eval/'+${UneEval.id}}">Modifier</a>
+                                <a type="button" class="btn btn-danger" th:href="@{'supp-Eval/'+${UneEval.id}}">Supprimer</a>
+                            </span>
+                        </div>
+                    </td>
+
+                    <td>
+                        <ul th:each="uneSeanceEval : ${UneEval.seances}">
+                            <li th:text="${uneSeanceEval.id}">
+
+                            </li>
+                            <li th:text="${uneSeanceEval.formateur.nom}"></li>
+                            <li th:text="${uneSeanceEval.dateDuJour}"></li>
+                        </ul>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div th:replace="formateurs/fragments/footer:: footer"/>
+</body>
+</html>

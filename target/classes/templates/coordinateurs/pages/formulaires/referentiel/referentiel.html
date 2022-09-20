@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='Référentiel')"/>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Référentiel</h1>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Formation</th>
+                <th scope="col">Reac</th>
+                <th scope="col">Activite</th>
+                <th scope="col">Competence</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+<!-- style="border-bottom: .1rem solid"-->
+                <td><p style="border-bottom: .1rem solid" th:each="uneFormation : ${formations}" th:text="${uneFormation.typeFormation}"></p></td>
+
+                <td ><p th:each="unReac : ${reacs}" th:text="${unReac.dateDebut} +'|'+ ${unReac.nom}"></p></td>
+
+                <td><p th:each="uneActivite : ${activites}" th:text="${uneActivite.numOdre} +'|'+ ${uneActivite.activitesTypes}"></p></td>
+
+                <td><p th:each="uneCompetence : ${competences}" th:text="${uneCompetence.numOdre}+'|'+${uneCompetence.nom}"></p></td>
+            </tr>
+<!--            <tr th:each="competence: ${competences}">-->
+<!--                <td th:text="${competence.activite.reac.dateDebut}"></td>-->
+<!--                <td th:text="${competence.activite.reac.formation.typeFormation}"></td>-->
+<!--                <td th:text="${competence.activite.activitesTypes}"></td>-->
+<!--                <td th:text="${competence.nom}"></td>-->
+<!--            </tr>-->
+            </tbody>
+        </table>
+<!--        <p>Pour une competence qui a une activite qui a une formation et une reac </p>-->
+    </div>
+</main>
+
+<!-- /.container -->
+<div th:replace="coordinateurs/fragments/footer:: footer"/>
+</body>
+</html>

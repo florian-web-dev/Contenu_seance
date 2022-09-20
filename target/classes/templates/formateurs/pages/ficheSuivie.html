@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+<meta charset="UTF-8">
+
+<!--    <div th:replace="formateurs/fragments/header :: header-css (title='Fiche suivie')"/>-->
+<div th:replace="formateurs/fragments/header :: header-css (title='Fiche suivie')"/>
+</head>
+<body class="">
+
+<div th:replace="formateurs/fragments/header :: header-nav"/>
+<main>
+
+    <!--    <div class="space"></div>-->
+
+    <section th:each="unDetail : ${#authentication.getAuthorities()}"
+             th:with="role=${unDetail.authority}"
+             class="container-fluid px-5">
+
+        <div th:if="${!seances.isEmpty()} or ${role=='formateur'} or ${role=='coordinateur'}">
+
+            <div th:if="${role == 'coordinateur'}">
+                <a th:href="@{/Coordinateur/export/excel}" class="btn btn-outline-secondary">Exporter toutes les fiches</a>
+
+                <!--                <form th:action="@{/Coordinateur/export/excel}" method="post" enctype="multipart/form-data">-->
+                <!--                    <input type="file" name="file" id="">-->
+                <!--                    <button type="submit">Envoyer</button>-->
+                <!--                </form>-->
+
+                <a th:if="${idSession != null}" th:href="@{'/Coordinateur/export/excel/session/' + ${idSession}}" class="btn btn-outline-secondary">Exporter les fiches de la session</a>
+
+
+            </div>
+
+            <div class="table-responsive">
+                <h1 class="text-center m-2">Liste des fiches de suivi de séance</h1>
+                <div th:if="${message}" class="alert alert-success" role="alert">
+                    <p class="text-center" th:text="${message}"></p>
+                </div>
+                <p class="" th:text="'Aujourd\'hui, nous sommes le '+${formatDateTime}"></p>
+
+                <details class="nav-link">
+                    <summary>Formation</summary>
+                    <div class="d-flex">
+                        <a th:each="uneSession : ${sessionList}" type="button" class="btn btn-info m-2"
+                           th:href="@{'/Coordinateur/Fiche_suivie/session/'+${uneSession?.id}}"
+                           th:with="dateSession=${#temporals.format(uneSession?.dateDebut, 'dd/MM/yyyy')} + ' | ' + ${#temporals.format(uneSession?.dateFin, 'dd/MM/yyyy')}"
+                           th:text="${dateSession} + ' : '+${uneSession?.formation?.typeFormation}"
+                           title="Date de debut | Date de fin"
+                        ></a>
+                    </div>
+
+                </details>
+<!--                Total seance : [[${totalItems}]]-->
+                <p th:text="${vide}? 'Total seance vide : ' +${totalItems}: 'Total seance : ' +${totalItems} "></p>
+                <table class="table ">
+                    <thead>
+                    <tr>
+<!--                        <th>id</th>-->
+                        <th>Date du jour de la seance</th>
+                        <th>Durée</th>
+                        <th>Support utilisé</th>
+                        <th>Déroulement</th>
+                        <th>Objectif pédagogique</th>
+                        <th>Méthode envisagee</th>
+                        <th>Évaluation</th>
+                        <th>Nom du formateur</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="uneSeance: ${seances}">
+<!--                        <th scope="row" th:text="${uneSeance?.id}"></th>-->
+                        <td th:text="${#temporals.format(uneSeance?.dateDuJour, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${uneSeance?.durer} + H"></td>
+
+                        <td th:text="${uneSeance?.supportUse}"
+                            th:classappend="${uneSeance?.supportUse.isEmpty()}? 'bg-color-tab' : '' "
+                        ></td>
+
+                        <td th:text="${uneSeance?.deroulement}"
+                            th:classappend="${uneSeance?.deroulement.isEmpty()}? 'bg-color-tab' : '' "
+                        ></td>
+
+                        <td th:text="${uneSeance?.objectifPeda}"
+                            th:classappend="${uneSeance?.objectifPeda.isEmpty()}? 'bg-color-tab' : '' "
+                        ></td>
+
+                        <td th:text="${uneSeance?.methodeEnvisagee}"
+                            th:classappend="${uneSeance?.methodeEnvisagee.isEmpty()}? 'bg-color-tab' : '' "
+                        ></td>
+
+                        <td th:text="${uneSeance?.evaluation}"
+                            th:classappend="${uneSeance?.evaluation.isEmpty()}? 'bg-color-tab' : '' "
+                        ></td>
+
+                        <td th:text="${uneSeance?.formateur?.nom}? ${uneSeance?.formateur?.nom} : ''"
+                            th:classappend="${uneSeance?.getStringAttIsEmpty()}? 'bg-danger':'bg-success'"
+
+                            class="text-center bg-opacity-75 "></td>
+
+                        <td class="text-center">
+                            <a type="button" class="btn btn-secondary"
+                               th:href="@{'/Formateur/ModifierSeance/'+${uneSeance?.id}}">Modifier</a>
+
+                            <a th:if="${role}=='coordinateur'" type="button" class="btn btn-danger" th:href="@{'/sup-Seance/'+${uneSeance?.id}}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                     class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"></path>
+                                </svg>
+                            </a>
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+<!--                <p th:text="${idSession}"></p>-->
+                <div th:if="${totalPages > 1}" >
+                    <div class="">
+                        <nav aria-label="Page navigation"
+                             th:with="hrefpage=${vide}? '/Coordinateur/Fiche_suivie/Non_renseigner/page/': '/Coordinateur/Fiche_suivie/page/'">
+                            <ul class="pagination justify-content-center"
+                                th:with="hrefpage=${idSession}? '/Coordinateur/Fiche_suivie/session/' + ${idSession} + '/page/':${hrefpage} ">
+
+                                <li class="page-item mx-3" th:if="${currentPage < currentPage+1 && currentPage!=1 }">
+
+                                    <a type="button" class="btn btn-outline-info"
+                                       th:href="@{${hrefpage} + ${currentPage - 1} }" title="Page Precedent">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+                                        </svg>
+                                        <span class="visually-hidden">Page precedent</span>
+                                    </a>
+                                </li>
+
+                                <li class="page-item mx-1" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                                    <a class="page-link" th:if="${currentPage != i}"
+                                       th:href="@{${hrefpage} + ${i} }">[[${i}]]</a>
+                                    <span class="page-link bg-info" th:unless="${currentPage != i}">[[${i}]]</span>
+                                </li>
+
+                                <li class="page-item mx-3" th:if="${currentPage < totalPages}">
+                                    <a type="button" class="btn btn-outline-info" th:href="@{${hrefpage} + ${currentPage + 1} }" title="Page Suivante">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+                                        </svg>
+                                        <span class="visually-hidden">Page Suivante</span>
+                                    </a>
+                                </li>
+
+                                <li class="page-item">
+                                    <a class="page-link" th:if="${currentPage < totalPages}"
+                                       th:href="@{'/Coordinateur/Fiche_suivie/page/' + ${totalPages} }">Dernière
+                                        page</a>
+                                    <span class="visually-hidden" th:unless="${currentPage < totalPages}">Dernière page</span>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div th:each="unDetail : ${#authentication.getAuthorities()}"
+             th:with="role=${unDetail.authority == 'coordinateur'}"
+             th:if="${seances.isEmpty()} and ${role==true}">
+
+            <h3 class="text-center m-5 p-5">Vous n'avez pas encore remplie vos seance</h3>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+<div th:replace="formateurs/fragments/footer:: footer"/>
+</body>
+</html>

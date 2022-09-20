@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='Dashboard')"/>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-calendar" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                This week
+            </button>
+        </div>
+    </div>
+
+    <table class="table table-bordered border-white table-striped ">
+        <thead>
+
+        </thead>
+        <tbody th:each="uneFormation : ${formations}">
+        <tr>
+            <td th:text="${uneFormation.typeFormation}" colspan="3" class="bg-dark text-light text-center"></td>
+        </tr>
+
+        <tr th:each="sessionFormation : ${uneFormation.getSessions()}" class="">
+
+            <!--                    "${#temporals.format(sessionFormation.dateFin,'dd-MM-YYYY')}"-->
+            <td class="align-middle bg-success bg-opacity-25">
+                <p class="text-center" ><b>La session a la date :</b>
+                    <span th:text="${#temporals.format(sessionFormation.dateDebut,'dd-MM-YYYY')} + ' | ' + ${#temporals.format(sessionFormation.dateFin,'dd-MM-YYYY')}"></span>
+                </p>
+
+                <h5 class="text-center"><u>Formateur de la session : </u></h5>
+                <div th:each="formateurSession : ${sessionFormation.getFormateurs()}" class="text-center my-3">
+
+                    <b><span th:text="${formateurSession.nom} + ' '+ ${formateurSession.prenom}"></span></b>
+
+                    <details>
+                        <summary>Date et durée des seances du formateur</summary>
+                        <div th:each="seanceFormateur : ${formateurSession.getSeances()}"
+                             th:with="dateSeance = ${#temporals.format(seanceFormateur.dateDuJour,'dd-MM-YYYY')}">
+
+                            <p th:text="${dateSeance} + ' | '+${seanceFormateur.durer}+'H'"></p>
+
+                        </div>
+                    </details>
+
+
+                </div>
+            </td>
+
+            <td class="bg-info bg-opacity-25">
+                <div th:each="seanceFormation : ${sessionFormation.getSeances()}" class="p-2">
+                    <h5 class="text-center">Fiche de suivie de la seance</h5>
+                    <p><b>Date du jour Seance :</b>
+                        <span th:text="${#temporals.format(seanceFormation.dateDuJour,'dd/MM/YYYY')}"></span>
+                    </p>
+
+                    <p><b>Objectif pédagogique :</b>
+                        <span th:text="'Objectif peda : '+ ${seanceFormation.objectifPeda}"></span>
+                    </p>
+
+                    <p><b>Déroulement :</b>
+                        <span th:text="${seanceFormation.deroulement}"></span>
+                    </p>
+
+                    <h6><u>Savoir-faire abordé :</u></h6>
+                    <ul th:each="skillFormation : ${seanceFormation.getSavoirFaires()}">
+                        <li>
+                            <b><p th:text="${skillFormation.nom}"></p></b>
+                        </li>
+                    </ul>
+
+                    <div th:classappend="${!seanceFormation.evaluation.isEmpty()}? '' : 'alert alert-warning' ">
+                        <b>Evaluation :</b>
+                        <span th:text="${seanceFormation.evaluation}"></span>
+
+                        <p th:text="${!seanceFormation.evaluation.isEmpty()}? '' : 'non renseigner' " ></p>
+
+                    </div>
+
+                </div>
+            </td>
+
+
+        </tr>
+
+
+        </tbody>
+    </table>
+
+</main>
+
+<!-- /.container -->
+<div th:replace="coordinateurs/fragments/footer:: footer"/>
+</body>
+</html>
+

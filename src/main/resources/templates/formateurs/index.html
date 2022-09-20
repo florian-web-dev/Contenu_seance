@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+<head>
+    <meta charset="UTF-8">
+
+    <div th:replace="formateurs/fragments/header :: header-css (title='index')"/>
+</head>
+<body>
+<div th:replace="formateurs/fragments/header :: header-nav"/>
+
+<!--<div th:replace="fragments/header :: header-nav"/>-->
+
+<main>
+    <section class="container">
+<!--        <p th:text="${#authentication.name}"></p>-->
+
+        <div th:if="${message}" class="alert alert-success" role="alert" >
+            <p class="text-center" th:text="${message}"></p>
+        </div>
+<!--                <p th:text="${#authentication.toString()}"></p>-->
+
+        <div th:each="unFormateur : ${formateurList}" th:if="${unFormateur.email} == ${#authentication.name} " class="px-5 mx-5">
+            <div class="d-flex align-items-center justify-content-around">
+                <h3 th:text="'Bienvenue '+ ${unFormateur.concatNomPrenom()}"></h3>
+                <a th:href="@{'/Formateur/'+${unFormateur.id}+'/Fiche_suivie'}">Vos fiches de suivi</a>
+                <a th:href="@{'/Formateur/'+${unFormateur.id}+'/Fiche_suivie/vide'}">Vos fiches de suivi non remplie</a>
+            </div>
+
+            <hr>
+
+            <div th:each="sessionFormateur : ${unFormateur.sessions}">
+
+                <div class="d-flex align-items-center justify-content-between">
+                    <p th:with="dateSession=${sessionFormateur.dateDebut} + ' | ' + ${sessionFormateur.dateFin}"
+                       th:text="${sessionFormateur.formation.typeFormation} + ' Date : ' + ${dateSession}"
+                    class="m-0"
+                    >Vos session</p>
+
+
+                    <a th:href="@{'/Formateur/session/'+ ${sessionFormateur.id} }">Voir la session</a>
+                </div>
+                <hr>
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+
+</main>
+
+<!-- /.container -->
+<div th:replace="formateurs/fragments/footer:: footer"/>
+<!--<div th:replace="formateurs/fragments/footer:: footer"/>-->
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='Sessions')"/>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 lead">
+
+    <div th:if="${message}" class="alert alert-success" role="alert">
+        <p class="text-center" th:text="${message}"></p>
+    </div>
+
+    <form class="row g-3 needs-validation p-3 " method="post" novalidate
+          th:action="@{/Coordinateur/traitement-session}"
+          th:object="${sessionDTO}">
+        <h2 th:text="${id==null} ? 'Ajoutez une session' : 'Modifiez une session n°'+ ${id}"></h2>
+        <div class="col-md-4">
+            <input type="hidden" name="id" th:value="${id}" value="">
+            <label for="centres" class="form-label">Centres</label>
+            <!--            <span th:if="${#fields.hasErrors('centre')}" th:errors="*{centre.nom}"></span>-->
+            <select class="form-select" id="centres" name="centre" required>
+                <option selected disabled>Choisisez un centre</option>
+                <option th:each="unCentre : ${centreList}"
+                        th:value="${unCentre.id}"
+                        th:text="${unCentre.nom}"
+                >
+                </option>
+            </select>
+
+        </div>
+        <div class="col-md-4">
+            <label for="formation" class="form-label">Formation</label>
+            <!--            <span th:if="${#fields.hasErrors('formation')}" th:errors="*{formation.typeFormation}"></span>-->
+            <select class="form-select" id="formation" name="formation" required>
+                <option selected disabled>Choisisez un formation</option>
+                <option th:each="uneFormation : ${formations}"
+                        th:value="${uneFormation.id}"
+                        th:text="${uneFormation.typeFormation}"
+                >
+                </option>
+            </select>
+
+        </div>
+        <div class="col-md-4">
+            <label for="coordinnateur" class="form-label">Coordinnateur</label>
+            <!--            <span th:if="${#fields.hasErrors('coordinateur')}" th:errors="*{coordinateur.nom}"></span>-->
+            <select class="form-select" id="coordinnateur" name="coordinateur" required>
+                <option selected disabled>Choisisez un centre</option>
+                <option th:each="unCoordinateur : ${coordinateurList}"
+                        th:value="${unCoordinateur.id}"
+                        th:text="${unCoordinateur.nom}">
+
+                </option>
+            </select>
+
+        </div>
+        <div class="col-md-4">
+            <label for="formateur" class="form-label">Formateur</label>
+            <!--            <span th:if="${#fields.hasErrors('coordinateur')}" th:errors="*{coordinateur.nom}"></span>-->
+            <select class="form-select" id="formateur" name="formateurs" required>
+                <option selected disabled>Choisisez un formateur</option>
+                <option th:each="unFormateur : ${formateurList}"
+                        th:value="${unFormateur.id}"
+                        th:text="${unFormateur.nom}">
+
+                </option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="seance" class="form-label">Seance</label>
+            <!--            <span th:if="${#fields.hasErrors('coordinateur')}" th:errors="*{coordinateur.nom}"></span>-->
+            <select class="form-select" id="seance" name="seances" required>
+                <option selected disabled>Choisisez une seance</option>
+                <option th:each="uneSeance : ${seanceList}"
+                        th:value="${uneSeance.id}"
+                        th:text="${#temporals.format(uneSeance.dateDuJour,'dd-MM-YYYY')}">
+
+                </option>
+            </select>
+
+
+        </div>
+
+        <div class="col-12 my-5">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <label for="dateDebut" class="form-label">Date debut</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('dateDebut')}" th:errors="*{dateDebut}"></p>
+                    <input type="date" th:field="*{dateDebut}" class="form-control" id="dateDebut" required>
+
+                </div>
+
+                <div class="col-md-3">
+                    <label for="dateFin" class="form-label">Date fin</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('dateFin')}" th:errors="*{dateFin}"></p>
+                    <input type="date" th:field="*{dateFin}" class="form-control" id="dateFin" required>
+
+                </div>
+                <div class="col-md-3">
+                    <label for="dateFin" class="form-label">Durée total de la session </label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('durerTotal')}"
+                       th:errors="*{durerTotal}"></p>
+                    <input type="number" th:field="*{durerTotal}" class="form-control" id="durerTotal" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 text-center my-4">
+            <button class="btn btn-primary" type="submit"
+                    th:text="${id==null} ? 'Ajoutez une session' : 'Modifiez une session' ">Submit form
+            </button>
+        </div>
+    </form>
+    <hr>
+    <details class="nav-link w-25 ">
+        <summary>Filtre par Formation</summary>
+        <div class=" d-flex">
+            <a th:each="uneFormation : ${formations}" class="btn btn-primary m-1 p-1"
+               th:href="@{'/Coordinateur/Sessions/formation/'+${uneFormation.id}}"
+               th:text="${uneFormation.typeFormation}"> </a>
+        </div>
+
+    </details>
+    <section class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" title="Coordonnateur">Coordinateur</th>
+                <th scope="col">Centre</th>
+                <th scope="col">Formation</th>
+                <th scope="col">Date de début <br>Date de fin</th>
+
+                <th scope="col">Durée de la session</th>
+
+                <th scope="col" title="Durée effectuer de la session">Total réaliser</th>
+                <th scope="col">Nombre de Seance</th>
+                <th scope="col">Formateur</th>
+
+                <th scope="col" class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="uneSession : ${sessionList}">
+                <td th:text="${uneSession?.coordinateur?.nom}"></td>
+                <td th:text="${uneSession?.centre?.nom}"></td>
+                <td th:text="${uneSession?.formation?.typeFormation}"></td>
+
+
+<!--                <td th:with="datesSession=${#temporals.format(uneSession.dateDebut,'dd/MM/YYYY')} + '  '+ ${#temporals.format(uneSession.dateFin,'dd/MM/YYYY')}"-->
+<!--                    th:text="${datesSession}">-->
+<!--                   <p></p> -->
+<!--                </td>                -->
+                <td>
+                   <p title="Date de début" th:text="${#temporals.format(uneSession.dateDebut,'dd/MM/YYYY')}"></p>
+                   <p title="Date de fin" th:text="${#temporals.format(uneSession.dateFin,'dd/MM/YYYY')}"></p>
+                </td>
+
+                <td th:text="${uneSession.durerTotal} +'H'"></td>
+
+                <td th:text="${uneSession.calSumSeance()+'H'}"></td>
+
+<!--                <td th:each="unformateur : ${uneSession.getFormateurs()}"-->
+<!--                    th:text="${unformateur.nom}+ ' : ' + ${uneSession.calSumSeanceFormateur(unformateur)+'H'}">-->
+
+<!--                </td>-->
+
+                <td th:each="sessionSeance,iter : ${uneSession.getSeances()}"
+                    th:if="${iter.last}"
+                    th:text="${iter.size}">
+
+                </td>
+                <td>
+                    <details>
+                        <summary>Liste</summary>
+                        <div th:each="sessionFormateur : ${uneSession.getFormateurs()}">
+<!--                            <p th:text="${sessionFormateur.nom}"></p>-->
+                            <p th:text="${sessionFormateur.concatNomPrenom(sessionFormateur)}"></p>
+
+                        </div>
+                    </details>
+
+                </td>
+
+                <td class="border-end border-2 text-center">
+                    <a type="button" class="btn m-1" role="button" aria-disabled="true"
+                       th:classappend="${id==null}? 'btn-secondary' : 'disabled'"
+                       th:href="@{'Modifier-Session/'+${uneSession.id}}">Modifier</a>
+<!--                    <a type="button" class="btn btn-danger" th:href="@{'traitement-supp-session/'+${uneSession.id}}">Supprimer</a>-->
+
+                    <a type="button" class="btn btn-info m-1" title="Voir les fiches de suivie"
+                       th:href="@{'/Coordinateur/Fiche_suivie/session/'+${uneSession.id}}" target="_blank">Voir les fiches</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </section>
+
+
+</main>
+
+<!-- /.container -->
+<div th:replace="coordinateurs/fragments/footer:: footer"/>
+</body>
+</html>

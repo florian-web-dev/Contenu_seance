@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='index')"/>
+    <script defer th:src="@{/js/addFormActComp.js}"></script>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h1">Nom du titre professionnelles</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="feather feather-calendar" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                This week
+            </button>
+        </div>
+    </div>
+
+    <h2>Section title</h2>
+    <section class="container">
+
+        <div class="row">
+            <div class="col-6 border-end">
+                <form action="">
+
+                    <label for="activite">Activités types</label>
+                    <input type="text" class="form-control" id="activite" placeholder="Nom del'activité"
+                           aria-label="Activités types">
+
+                    <div class="">
+                        <button class="btn btn-primary" type="submit" id="btnActivite">valider champ</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6" id="textActivite">
+
+            </div>
+
+
+
+             -->
+
+        </div>
+
+        <div class="row">
+            <div class="col-6 border-end">
+                <label for="competence">Competence professionnelles</label>
+                <input type="text" class="form-control" id="competence" placeholder="Liste des competences"
+                       aria-label="Activités types">
+            </div>
+            <div class="col-6" id="textCompetence">
+                <label for="">Liste des competences</label>
+            </div>
+            <div class="">
+                <button class="btn btn-primary" id="addInput">valider champ</button>
+            </div>
+
+        </div>
+
+
+        <form action="" class="d-flex justify-content-end">
+
+            <div id="formActivitesCompetence" class="visually-hidden">
+
+            </div>
+            <button class="btn btn-primary" type="submit">Envoyer formulaire</button>
+        </form>
+    </section>
+</main>
+
+<!-- /.container -->
+<div th:replace="coordinateurs/fragments/footer:: footer"/>
+</body>
+</html>

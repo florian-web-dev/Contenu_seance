@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <div th:replace="formateurs/fragments/header :: header-css (title='Fiche suivie')"/>
+</head>
+<body>
+
+<div th:replace="formateurs/fragments/header :: header-nav"/>
+<main class="container">
+    <div class="space"></div>
+
+    <form class="row g-3">
+        <div class="col">
+            <label for="" class="form-label">Formation</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="" class="form-label">Activité</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </form>
+
+
+</main>
+
+<div th:replace="formateurs/fragments/footer:: footer"/>
+</body>
+</html>

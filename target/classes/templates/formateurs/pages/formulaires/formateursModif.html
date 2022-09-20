@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="formateurs/fragments/header :: header-css (title='Modifer formateur')"/>
+</head>
+<body>
+<div th:replace="formateurs/fragments/header :: header-nav"/>
+
+<main class="">
+
+    <h1 class="h2">Formateurs</h1>
+
+    <section class="d-flex justify-content-center">
+
+        <form class="col-10 needs-validation" novalidate="" th:object="${intervenantDTO}" method="post"
+              th:action="@{/Formateur/traitement}">
+            <input type="hidden" name="id" th:value="${intervenantDTO.id}">
+            <div th:if="${message}" class="alert alert-success" role="alert" >
+                <p class="text-center" th:text="${message}"></p>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="nom" class="form-label">NOM</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></p>
+                    <input type="text" id="nom" th:field="*{nom}" class="form-control" placeholder="NOM"
+                           aria-label="NOM">
+                </div>
+                <div class="col-md-6">
+                    <label for="prenom" class="form-label">Prenom</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></p>
+                    <input type="text" id="prenom" th:field="*{prenom}" class="form-control" placeholder="Prenom"
+                           aria-label="Prenom">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    <input type="email" th:field="*{email}" class="form-control" id="inputEmail">
+                </div>
+                <div class="col-md-6">
+                    <label for="tel" class="form-label">Telephone</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}"></p>
+                    <input type="text" th:field="*{tel}" class="form-control" id="tel">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('mp')}" th:errors="*{mp}"></p>
+                    <p th:if="${messageError}" th:text="${messageError}" class="alert alert-info"></p>
+
+                    <input type="password" th:field="*{mp}" class="form-control" id="inputPassword">
+                </div>
+
+                <div class="col-md-6">
+                    <label for="matchingPassword" class="form-label">Password confirmation</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}"></p>
+                    <p th:if="${messageError}" th:text="${messageError}" class="alert alert-info"></p>
+                    <input type="password" class="form-control" id="matchingPassword" th:field="*{matchingPassword}">
+                </div>
+
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Addresse</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}"></p>
+                    <input type="text" th:field="*{adresse}" class="form-control" id="inputAddress"
+                           placeholder="1234 Main St">
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <label for="inputCity" class="form-label">Ville</label>
+                            <p class="alert alert-info" th:if="${#fields.hasErrors('ville')}" th:errors="*{ville}"></p>
+                            <input type="text" th:field="*{ville}" class="form-control" id="inputCity">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="codePostal" class="form-label">Code Postal</label>
+                            <p class="alert alert-info" th:if="${#fields.hasErrors('codePostal')}"
+                               th:errors="*{codePostal}"></p>
+                            <input type="text" th:field="*{codePostal}" class="form-control" id="codePostal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center my-4">
+                <button type="submit" class="w-50 btn btn-primary btn-lg" th:text="${id==null} ? 'Ajoutez un formateur' : 'Modifiez un formateur' ">Envoyez</button>
+            </div>
+
+        </form>
+    </section>
+
+
+</main>
+
+<!-- /.container -->
+<div th:replace="formateurs/fragments/footer:: footer"/>
+</body>
+</html>
+

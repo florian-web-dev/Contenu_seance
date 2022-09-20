@@ -1,0 +1,32 @@
+@startuml
+
+actor Coordinateur
+control "FormateurController" as DC
+participant "FormateurRepository" as CR
+entity "Formateurs" as F
+database "BDD" as BDD
+boundary "View" as V
+
+Coordinateur -> DC: GET/coordinateur/formateur
+activate DC #FFBBBB
+
+DC -> CR: findAll()
+activate DC #DarkSalmon
+activate CR #FFBBBB
+
+CR -> BDD: select * from formateurs
+activate BDD #FFBBBB
+BDD --> CR: return
+deactivate BDD
+
+CR --> DC: return
+deactivate DC
+deactivate CR
+
+DC -> V: dispose dans le template
+V -> V: genère l'HTML
+V --> DC: return
+
+DC --> Coordinateur: return
+deactivate DC
+@enduml

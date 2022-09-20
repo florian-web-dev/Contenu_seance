@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<!--xmlns:th="disabled"-->
+<head>
+    <meta charset="UTF-8">
+
+    <div th:replace="coordinateurs/fragments/header :: head-css (title='Centre')"/>
+</head>
+<body>
+<div th:replace="coordinateurs/fragments/header :: header-nav"/>
+<div th:replace="coordinateurs/fragments/header :: header-sidebar"/>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Centre</h1>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success" role="alert" >
+        <p class="text-center" th:text="${message}"></p>
+    </div>
+    <section class="row justify-content-center">
+        <form class="needs-validation col-10" novalidate="" th:object="${centreDTO}" name="formCentre" method="post"
+              th:action="@{/Coordinateur/traitement}">
+            <input type="hidden" name="id" th:value="${id}" value="">
+
+            <div class="row g-4">
+                <div class="col-sm-5">
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></p>
+                    <label for="nomCentre" class="form-label">Nom du centre</label>
+                    <input type="text" class="form-control" name="nom" th:field="*{nom}" id="nomCentre"
+                           placeholder="Nom du centre demandé" value="" required>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="ville" class="form-label">Ville du centre</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('ville')}" th:errors="*{ville}"></p>
+                    <input type="text" name="ville" th:field="*{ville}" class="form-control" id="ville"
+                           placeholder="Nom de ville est demandé" value="" required>
+
+                </div>
+
+                <div class="col-sm-3">
+                    <label for="codePostal" class="form-label">Code postal</label>
+                    <p class="alert alert-info" th:errors="*{codesPostal}"></p>
+                    <input type="text" name="codesPostal" th:field="*{codesPostal}" class="form-control" id="codePostal"
+                           placeholder="Code postal est demandé" value="" required>
+                </div>
+
+                <div class="col-12">
+                    <label for="adresse" class="form-label">Adresse du centre</label>
+                    <p class="alert alert-info" th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}"></p>
+                    <input type="text" name="adresse" th:field="*{adresse}" class="form-control" id="adresse"
+                           placeholder="Veuillez saisir l'adresse du centre" required>
+                </div>
+
+            </div>
+            <div>
+                <label for="coordinnateur" class="form-label">Coordinnateur</label>
+                <!--            <span th:if="${#fields.hasErrors('coordinateur')}" th:errors="*{coordinateur.nom}"></span>-->
+                <select class="form-select" id="coordinnateur" name="coordinateurs" required>
+                    <option selected disabled>Choisisez un coordinnateur</option>
+                    <option th:each="unCoordinateur : ${coordinateurList}"
+                            th:value="${unCoordinateur.id}"
+                            th:text="${unCoordinateur.nom}">
+
+                    </option>
+                </select>
+
+                <label for="session" class="form-label">Session</label>
+
+                <select class="form-select" id="session" name="sessions" required>
+                    <option selected disabled>Choisisez une session</option>
+                    <option th:each="uneSession : ${sessionList}"
+                            th:value="${uneSession.id}"
+                            th:with="dateDebut=${#temporals.format(uneSession.dateDebut,'dd-MM-YYYY')}"
+
+
+                            th:text="${dateDebut} + ' | '+ ${#temporals.format(uneSession.dateFin,'dd-MM-YYYY')} + ' | ' + ${uneSession.formation.typeFormation}">
+
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="text-center my-4">
+                <button class="w-50 btn btn-primary btn-lg" type="submit" th:text="${id==null} ? 'Ajoutez un Centre' : 'Modifiez un Centre'"></button>
+            </div>
+        </form>
+        <hr class="my-4">
+    </section>
+    <section class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Code postal</th>
+                <th scope="col" class="text-center">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="unCentre: ${lesCentres}">
+
+                <td th:text="${unCentre.nom}"></td>
+                <td th:text="${unCentre.adresse}"></td>
+                <td th:text="${unCentre.ville}"></td>
+                <td th:text="${unCentre.codesPostal}"></td>
+                <td class="text-center">
+                    <a type="button" class="btn" role="button" aria-disabled="true" th:classappend="${id==null}? 'btn-secondary' : 'disabled'"
+                       th:href="@{'ModifierCentre/'+${unCentre.id}}">Modifier</a>
+
+                    <a type="button" class="btn btn-danger"
+                       th:href="@{'Centre/'+${unCentre.id}}">Supprimer</a>
+
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+</main>
+<!-- /.container -->
+<div th:replace="fragments/footer:: footer"/>
+</body>
+</html>

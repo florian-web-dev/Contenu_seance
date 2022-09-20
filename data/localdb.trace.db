@@ -1,0 +1,483 @@
+2022-09-20 18:58:10 database: opening C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb (build 200)
+2022-09-20 18:58:10 database: opened C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 database: connecting session #3 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[3]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[3]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[3]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[3]: 
+/**/Connection conn1 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[3]: 
+/*SQL #:1 t:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #4 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[4]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[4]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[4]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[4]: 
+/**/Connection conn2 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[4]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #5 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[5]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[5]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[5]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[5]: 
+/**/Connection conn3 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[5]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #6 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[6]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[6]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[6]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[6]: 
+/**/Connection conn4 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[6]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #7 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[7]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[7]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[7]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[7]: 
+/**/Connection conn5 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[7]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #8 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[8]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[8]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[8]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[8]: 
+/**/Connection conn6 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[8]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #9 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[9]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[9]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[9]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[9]: 
+/**/Connection conn7 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[9]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #10 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[10]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[10]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[10]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[10]: 
+/**/Connection conn8 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[10]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #11 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[11]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[11]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[11]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[11]: 
+/**/Connection conn9 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[11]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:10 database: connecting session #12 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:10 jdbc[12]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:10 jdbc[12]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:10 jdbc[12]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:10 jdbc[12]: 
+/**/Connection conn10 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:10 jdbc[12]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:11 jdbc[3]: 
+/*SQL l:78 #:4 t:4*/SELECT NAME, VALUE FROM INFORMATION_SCHEMA.SETTINGS WHERE NAME IN (?, ?, ?, ?) {1: 'MODE', 2: 'DATABASE_TO_UPPER', 3: 'DATABASE_TO_LOWER', 4: 'CASE_INSENSITIVE_IDENTIFIERS'};
+2022-09-20 18:58:11 jdbc[3]: 
+/*SQL #:1*/CALL DATABASE();
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists activite CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists activite_competences CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists centre CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists centre_coordinateurs CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists competence CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists formation CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists intervenant CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists intervenant_sessions CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists reac CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists savoir_faire CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists seance CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists seance_savoir_faires CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */drop table if exists session CASCADE;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:3*/create table activite (id bigint generated by default as identity, activites_types varchar(255), num_odre integer not null, reac_id bigint, primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table activite_competences (activite_id bigint not null, competences_id bigint not null);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:1*/create table centre (id bigint generated by default as identity, adresse varchar(255), codes_postal varchar(255), nom varchar(255), ville varchar(255), primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table centre_coordinateurs (centres_id bigint not null, coordinateurs_id bigint not null);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table competence (id bigint generated by default as identity, nom varchar(255), num_odre integer not null, activite_id bigint, primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table formation (id bigint generated by default as identity, type_formation varchar(255), primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:1*/create table intervenant (type varchar(31) not null, id bigint generated by default as identity, adresse varchar(255), code_postal varchar(255), email varchar(255), mp varchar(255), nom varchar(255), prenom varchar(255), tel varchar(255), ville varchar(255), primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table intervenant_sessions (formateurs_id bigint not null, sessions_id bigint not null);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:1*/create table reac (id bigint generated by default as identity, date_debut date, durer bigint not null, lien varchar(255), nom varchar(255), formation_id bigint, primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table savoir_faire (id bigint generated by default as identity, nom varchar(255), competence_id bigint, primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table seance (id bigint generated by default as identity, date_du_jour date, deroulement varchar(255), durer integer not null, evaluation varchar(255), methode_envisagee varchar(255), objectif_peda varchar(255), support_use varchar(255), formateur_id bigint, session_id bigint, primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table seance_savoir_faires (seances_id bigint not null, savoir_faires_id bigint not null);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL */create table session (id bigint generated by default as identity, date_debut date, date_fin date, durer_total integer not null, centre_id bigint, coordinateur_id bigint, formation_id bigint, primary key (id));
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:3*/alter table activite_competences add constraint UK_gevxj9u1lo0g0awvh6hujn6vw unique (competences_id);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:9*/alter table activite add constraint FK3i5b2bih8uotaysrefdqyaqp6 foreign key (reac_id) references reac;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:1*/alter table activite_competences add constraint FKbwsyxtk1t998ldjm490kwg78h foreign key (competences_id) references competence;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:3*/alter table activite_competences add constraint FKd189n8y2psl95ne6uljxplq0s foreign key (activite_id) references activite;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:2*/alter table centre_coordinateurs add constraint FKekhjp3iqewfeqcckov7yow5b9 foreign key (coordinateurs_id) references intervenant;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:2*/alter table centre_coordinateurs add constraint FKh4eoap50vg9x8to49dsb4n9c6 foreign key (centres_id) references centre;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:2*/alter table competence add constraint FKra1nggu89d0apamhttyreliw1 foreign key (activite_id) references activite;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:4*/alter table intervenant_sessions add constraint FK3ngf6mokr2cjucxt4xc9sfmi foreign key (sessions_id) references session;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:4*/alter table intervenant_sessions add constraint FK5qfblyh470uhcqr9vk5yc9kue foreign key (formateurs_id) references intervenant;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:1*/alter table reac add constraint FK88fba4sxlv490aitn4ed75wt7 foreign key (formation_id) references formation;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:1*/alter table savoir_faire add constraint FK5x7dfkwolduhpmtq6cx1qxvkm foreign key (competence_id) references competence;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:2*/alter table seance add constraint FK29qqs59em3dgrjm1id82yig0t foreign key (formateur_id) references intervenant;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:2*/alter table seance add constraint FK36tgueyn7w6s0rsjqpqp42dtj foreign key (session_id) references session;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:2*/alter table seance_savoir_faires add constraint FKk0hd36jm66g6cn0cshl1slsxb foreign key (savoir_faires_id) references savoir_faire;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:1*/alter table seance_savoir_faires add constraint FK43vy298cci9a2ngiyx40np4yr foreign key (seances_id) references seance;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:1*/alter table session add constraint FK3blw65fox2pqakj42fshtakjb foreign key (centre_id) references centre;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:14*/alter table session add constraint FKkaacdt5dwxhh5stl7cnv23l5b foreign key (coordinateur_id) references intervenant;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL t:3*/alter table session add constraint FKgxjpjguyud7yk8jb51ygcmay1 foreign key (formation_id) references formation;
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into INTERVENANT(type,id, adresse,ville, code_postal, email, mp, nom, prenom, tel) values ('formateur',1,'1 rue formateur','BobVille','94500','bob@email.com','1234','Bob','noblewomen','0145879745');
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT(type,id, adresse,ville, code_postal, email, mp, nom, prenom, tel) values ('coordinateur',2,'63 Avenue du Pr\u00e9sident Wilson','Cachan','94230','bob@coordinateur.fr','{bcrypt}$2y$10$aFR8WfPgj5BzIzftisBGR.a5nSrTrL1caJ3Ph/T3eJlDdlJq7aCEK','Cortot','Val\u00e9rie','0145879745');
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT(type,id, adresse,ville, code_postal, email, mp, nom, prenom, tel) values ('coordinateur',3,'61 rue des bordes','Coordonateur','94510','chaplain@coordonateur.fr','{bcrypt}$2y$10$QPCKNHe0784vZC8DSbTH1Oo.bu/5NkIUFk3aTVOfdzso5bTSKuFlO','Sejourne','Eric','0145161919');
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT(type,id, adresse,ville, code_postal, email, mp, nom, prenom, tel) values ('formateur',4,'1 rue formateur','Londres','94500','ada@lovelace.fr','{bcrypt}$2a$10$4lQEHG5NnGvN942DfcEyAOSqLOgMei6CwrpESdFX9wtVBoGzPnFcS','Lovelace','Ada','0145879745');
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT(type,id, adresse,ville, code_postal, email, mp, nom, prenom, tel) values ('formateur',5,'1 rue formateur','UneVille','94500','timomoulin@msn.com','{bcrypt}$2a$10$id50JbO3K6L6GikHr1vqMOxJS7cTtNovRY1aCk10n6rnFhZzAIhaa','Moulin','Tim','0145879745');
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into INTERVENANT(type,id, adresse,ville, code_postal, email, mp, nom, prenom, tel) values ('formateur',6,'1 rue formateur sup','DeletVille','94500','sup@moi.fr','{bcrypt}$2a$10$SkE5R47SqV451HrxAK5LkeyxZtxSRJV2VqaQ7EJfBN2aE.ZuMCMHy','Sup','Moi','0102030405');
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into CENTRE(adresse, codes_postal, nom, ville) VALUES ( '61 des bordes','94430','Champlain','Chennevierre');
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into CENTRE(adresse, codes_postal, nom, ville) VALUES ( '2 des bordes','94400','Cachan','Cachan');
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into CENTRE_COORDINATEURS(centres_id, coordinateurs_id) VALUES ( 1,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into CENTRE_COORDINATEURS(centres_id, coordinateurs_id) VALUES ( 2,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into FORMATION(id,TYPE_FORMATION) values (1, 'CDA' );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into FORMATION(id,TYPE_FORMATION) values (2, 'DWWM' );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:2*/insert into SESSION(id,date_debut, date_fin,durer_total, centre_id, coordinateur_id, formation_id) VALUES (1, '2019-11-14','2020-07-06',693,1,3,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SESSION(id,date_debut, date_fin,durer_total, centre_id, coordinateur_id, formation_id) VALUES (2, '2020-11-20','2021-07-10',693,1,3,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SESSION(id,date_debut, date_fin,durer_total, centre_id, coordinateur_id, formation_id) VALUES (3, '2021-11-16','2022-07-13',700,1,3,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SESSION(id,date_debut, date_fin,durer_total, centre_id, coordinateur_id, formation_id) VALUES (4, '2020-9-22','2021-05-08',693,2,2,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SESSION(id,date_debut, date_fin,durer_total, centre_id, coordinateur_id, formation_id) VALUES (5, '2022-07-22','2023-03-08',700,2,2,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id) VALUES ( 1,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 5,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 1,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 4,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 5,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 5,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 4,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 4,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 4,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 1,4);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 5,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into INTERVENANT_SESSIONS(formateurs_id, sessions_id)VALUES ( 4,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into REAC(nom,date_debut, durer, lien, formation_id) values ('CDA reac', '2019-01-01',5,'https://www.banque.di.afpa.fr/EspaceEmployeursCandidatsActeurs/EGPResultat.aspx?ct=01281m03&type=t',1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into REAC(nom,date_debut, durer, lien, formation_id) values ('DWWM reac', '2019-01-01',5,'https://www.banque.di.afpa.fr/EspaceEmployeursCandidatsActeurs/EGPResultat.aspx?ct=01280m03&type=t',2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into ACTIVITE(id, activites_types, num_odre, reac_id) VALUES ( 1,'Concevoir et developper Cda',10 ,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into ACTIVITE(id, activites_types, num_odre, reac_id) VALUES ( 2,'Concevoir et developper la persistance DW',11 ,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into ACTIVITE(id, activites_types, num_odre, reac_id) VALUES ( 3,'Concevoir et developper des composants CDA',10 ,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into ACTIVITE(id, activites_types, num_odre, reac_id) VALUES ( 4,'Concevoir et developper la persistance des donn\u00e9es ...',11 ,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into ACTIVITE(id, activites_types, num_odre, reac_id) VALUES ( 5,'Concevoir et developper des composants DW',11 ,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into ACTIVITE(id, activites_types, num_odre, reac_id) VALUES ( 6,'Concevoir et developper la persistance CDA',8 ,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into COMPETENCE(id,nom,num_odre, activite_id) values (1, 'Maquetter une aplication cda',1,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into COMPETENCE(id,nom,num_odre, activite_id) values (2, 'Developper une interface cda',2,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into COMPETENCE(id,nom,num_odre, activite_id) values (3, 'Mettre en place une base de donn\u00e9es',7,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into COMPETENCE(id,nom,num_odre, activite_id) values (4, 'Developper une interface Dw',4,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into COMPETENCE(id,nom,num_odre, activite_id) values (5, 'Concevoir une application',10,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into COMPETENCE(id,nom,num_odre, activite_id) values (6, 'Concevoir une base de donne\u00e9es DW',5,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into COMPETENCE(id,nom,num_odre, activite_id) values (7, 'Concevoir une base de donne\u00e9es CDA',3,6 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into COMPETENCE(id,nom,num_odre, activite_id) values (8, 'Concevoir une base de donne\u00e9es autre',12,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (1, 'environnement de d\u00e9veloppement DW',4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (2, 'l\u2019architecture du web et des standards de son organisme de normalisation W3C DW ',5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (3, 'environnement de d\u00e9veloppement CDA',2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (4, 'l\u2019architecture du web et des standards de son organisme de normalisation W3C CDA',3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (5, 'syst\u00e8mes de gestion de base de donn\u00e9es DW',6 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (6, 'langage de requ\u00eate pour la base utilis\u00e9e DW',6 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (7, 'vuln\u00e9rabilit\u00e9s et des attaques classiques sur les bases de donn\u00e9es DW',6 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (8, 'protocoles d\u2019acc\u00e8s et ports utilis\u00e9s DW',6 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (9, 'R\u00e8gles orthographiques et grammaticales du francais CDA',7 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:7*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (10, 'Conception du mod\u00e8le entit\u00e9 association CDA',7 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (11, 'Outil de conception entit\u00e9 association de type atelier de g\u00e9nie logitiel CDA',7 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (12, 'Recenser les information du domaine metier CDA',7 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (13, 'environnement de d\u00e9veloppement cda',1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:5*/insert into SAVOIR_FAIRE(id,nom, competence_id) VALUES (14, 'environnement de d\u00e9veloppement autre', 8);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:3*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (1, '2021-02-08','deroulement commentaire bob formateur',4, 'Diaporama Exercices TD et mini-Projet','Objectif','vsCode','modalite eval DW 1',1,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (2, '2021-03-09','deroulement commentaire DW',4, 'Diaporama Exercices TD et mini-Projet','Objectif','vsCode','modalite eval DW 2',5,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (3, '2021-03-09','deroulement commentaire',4, 'Diaporama Exercices TD et mini-Projet','Objectif','vsCode','modalite eval autre 1',5,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (4, '2021-03-10','deroulement commentaire eval autre  Session CDA',3, 'D\u00e9monstrative participative','Objectif ','R\u00e9troprojecteur','modalite eval autre 1',5,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (5, '2020-03-10','deroulement com',4, 'Diaporama Exercices TD et mini-Projet','Objectif','vsCode','modalite eval CDA 2',5,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (6, '2020-03-10','deroulement com',4, 'Diaporama Exercices TD et mini-Projet','Objectif','vsCode','modalite eval autre 2',4,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (7, '2020-03-11','deroulement commentaire',3, 'Diaporama Exercices TD et mini-Projet','Objectif peda','vsCode','modalite eval autre 1',4,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (8, '2020-03-12','deroulement commentaire session 3',3, 'Diaporama Exercices TD et mini-Projet','Objectif peda','vsCode','',5,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (9, '2020-03-12','deroulement commentaire',3, 'Diaporama Exercices TD et mini-Projet ','Objectif peda CDA','vsCode','modalite eval CDA 1',4,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (10, '2020-03-12','deroulement commentaire',3, 'Diaporama Exercices TD et mini-Projet ','Objectif peda CDA','vsCode','modalite eval CDA 2',4,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (11, '2020-03-12','deroulement commentaire',3, 'Diaporama Exercices TD et mini-Projet ','Objectif peda DW','vsCode','modalite eval DW 1',4,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (12, '2020-03-12','deroulement commentaire',3, 'Diaporama Exercices TD et mini-Projet ','Objectif peda DW','vsCode','modalite eval DW 2',4,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (13, '2020-03-01','deroulement commentaire',3, 'Diaporama Exercices TD et mini-Projet ','Objectif peda DW','vsCode','',4,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (14, '2020-03-02','',3, 'Diaporama Exercices TD et mini-Projet','Objectif peda CDA','Cour + TD','un champ vide',4,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (15, '2020-03-03','',3, '','','','',4,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (16, '2020-03-04','',4, '','','','',4,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (17, '2020-03-05','',3, '','','','',4,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:12*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (18, '2020-03-08','',4, '','','','',null,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:15*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (19, '2020-03-09','',3, '','','','',5,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (20, '2020-03-10','',0, '','','','',null,5 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (21, '2020-03-11','',0, '','','','',null,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (22, '2020-03-12','',0, '','','','',null,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (23, '2020-03-15','',0, '','','','',null,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (24, '2020-03-16','',0, '','','','',null,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (25, '2020-03-17','',0, '','','','',null,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (26, '2020-03-18','',0, '','','','',null,null );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:4*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (27, '2020-03-19','',0, '','','','',null,null );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (28, '2020-03-22','',0, '','','','',null,null );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (29, '2020-03-23','',0, '','','','',null,null );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (30, '2020-03-24','',0, '','','','',null,null );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (31, '2020-03-25','deroulement',3, 'Diaporama','Objectif','Cour + TD','eval',5,1);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SEANCE(id,date_du_jour, deroulement, durer, methode_envisagee, objectif_peda, support_use, evaluation, formateur_id, session_id) VALUES (32, '2020-03-26','deroulement',4, 'Diaporama','Objectif','Cour + TD','eval',5,1);
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 1,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 2,2 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 3,1 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 11,6 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 12,7 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 12,13 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 4,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 5,4 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 6,3 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 7,9 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 8,9 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 9,10 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1 t:7*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 10,12 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 31,14 );
+2022-09-20 18:58:13 jdbc[3]: 
+/*SQL #:1*/insert into SEANCE_SAVOIR_FAIRES(seances_id, savoir_faires_id) VALUES ( 32,14 );
+2022-09-20 18:58:31 database: closing C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb from shutdown hook
+2022-09-20 18:58:31 database: disconnecting session #3
+2022-09-20 18:58:31 database: disconnected session #3
+2022-09-20 18:58:31 database: disconnecting session #4
+2022-09-20 18:58:31 database: disconnected session #4
+2022-09-20 18:58:31 database: disconnecting session #5
+2022-09-20 18:58:31 database: disconnected session #5
+2022-09-20 18:58:31 database: disconnecting session #6
+2022-09-20 18:58:31 database: disconnected session #6
+2022-09-20 18:58:31 database: disconnecting session #7
+2022-09-20 18:58:31 database: disconnected session #7
+2022-09-20 18:58:31 database: disconnecting session #8
+2022-09-20 18:58:31 database: disconnected session #8
+2022-09-20 18:58:31 database: disconnecting session #9
+2022-09-20 18:58:31 database: disconnected session #9
+2022-09-20 18:58:31 database: disconnecting session #10
+2022-09-20 18:58:31 database: disconnected session #10
+2022-09-20 18:58:31 database: disconnecting session #11
+2022-09-20 18:58:31 database: disconnected session #11
+2022-09-20 18:58:31 database: disconnecting session #12
+2022-09-20 18:58:31 database: disconnected session #12
+2022-09-20 18:58:31 database: opening C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb (build 200)
+2022-09-20 18:58:31 database: closing C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:31 database: closed
+2022-09-20 18:58:33 database: opened C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:33 database: connecting session #3 to C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */SET AUTO_SERVER TRUE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */SET TRACE_LEVEL_SYSTEM_OUT 2;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */SET TRACE_LEVEL_FILE 2;
+2022-09-20 18:58:33 jdbc[3]: 
+/**/Connection conn12 = DriverManager.getConnection("jdbc:h2:file:./data/localdb;AUTO_SERVER=TRUE;TRACE_LEVEL_FILE=2;TRACE_LEVEL_SYSTEM_OUT=2;", "SA", "");
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL #:1*/CALL READONLY();
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL t:5*/drop table if exists activite CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists activite_competences CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL t:1*/drop table if exists centre CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists centre_coordinateurs CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists competence CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists formation CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL t:1*/drop table if exists intervenant CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists intervenant_sessions CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists reac CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists savoir_faire CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists seance CASCADE;
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists seance_savoir_faires CASCADE;
+2022-09-20 18:58:33 database: opening C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb (build 200)
+2022-09-20 18:58:33 jdbc[3]: 
+/*SQL */drop table if exists session CASCADE;
+2022-09-20 18:58:33 database: disconnecting session #3
+2022-09-20 18:58:33 database: closing C:/Users/pc1/Documents/florian/CDA/projet greta pour git/Contenu_seance/data/localdb
+2022-09-20 18:58:33 database: closed
+2022-09-20 18:58:33 database: disconnected session #3

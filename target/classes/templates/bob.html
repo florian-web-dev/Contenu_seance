@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <div th:replace="fragments/header :: header-css (title='index')"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header-nav"/>
+
+<main class="container row align-items-center m-auto">
+    <div class="space"></div>
+    <h1>titre</h1>
+
+    <p th:text="${date1}"></p>
+    <p th:text="${datetime1}"></p>
+    <hr>
+    <p th:text="${formatDate}"></p>
+
+    <p th:text="${formatDateTime}"></p>
+    <div class="col-auto">
+        <a class="nav-link active" aria-current="page" th:href="@{/login}" href="#">Login</a>
+    </div>
+    <div class="col-auto">
+        <a class="nav-link active" aria-current="page" th:href="@{/Formateur/Fiche_suivie/formulaire}" href="#">Fiche
+            suivie form</a>
+    </div>
+    <div class="col-auto">
+        <a class="nav-link active" aria-current="page" th:href="@{/Formateur/Fiche_suivie}" href="#">Fiche suivie</a>
+    </div>
+
+    <div class="col-auto">
+        <a class="nav-link active" aria-current="page" th:href="@{/Coordinateur/notice}" href="#">Notice dashbord</a>
+    </div>
+
+    <div class="col-auto">
+        <a class="btn btn-dark" aria-current="page" th:href="@{/bob/click}" href="#">Export formateur</a>
+    </div>
+
+    <hr>
+
+    <div class="col-auto">
+        <a class="nav-link active" aria-current="page" th:href="@{/Coordinateur/showAll}" href="#">ShowAll</a>
+    </div>
+    <div class="col-auto">
+        <a class="nav-link active" aria-current="page" th:href="@{/Coordinateur/showExel}" href="#">showExel</a>
+    </div>
+    <hr>
+    <section class="row">
+        <div class="col">
+            <div th:each="unChamp: ${fieldClass}">
+                <p th:text="${unChamp.getName()}"></p>
+            </div>
+        </div>
+        <div class="col">
+            <div th:each="uneMethode : ${champMethod}">
+                <p th:text="${uneMethode.getName()}"></p>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+</main>
+
+<!-- /.container -->
+<div th:replace="fragments/footer:: footer"/>
+</body>
+</html>

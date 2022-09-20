@@ -1,0 +1,28 @@
+@startuml
+
+actor client
+
+client -> FicheSuivieController : postSaveFicheSuivi
+activate FicheSuivieController
+FicheSuivieController -> FicheSuivieController : viewModelFicheSuiviForm
+activate FicheSuivieController
+FicheSuivieController --> FicheSuivieController
+deactivate FicheSuivieController
+FicheSuivieController -> FicheSuivieController : viewModelFicheSuiviForm
+activate FicheSuivieController
+FicheSuivieController --> FicheSuivieController
+deactivate FicheSuivieController
+FicheSuivieController -> FicheSuivieService : saveSeance
+activate FicheSuivieService
+FicheSuivieService -> Seance : new
+activate Seance
+Seance --> FicheSuivieService
+deactivate Seance
+FicheSuivieService -> Seance : new
+activate Seance
+Seance --> FicheSuivieService
+deactivate Seance
+FicheSuivieService --> FicheSuivieController
+deactivate FicheSuivieService
+return
+@enduml
